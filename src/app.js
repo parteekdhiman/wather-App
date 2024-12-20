@@ -23,10 +23,10 @@ app.get("/",(req,res)=>{
     res.render("index")
 })
 app.get("/about",(req,res)=>{
-    res.render("about")
+    res.render("About")
 })
 app.get("/weather",(req,res)=>{
-    res.render("weather")
+    res.render("Weather")
 })
 app.get("*",(req,res)=>{
     res.render("404error")
