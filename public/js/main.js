@@ -63,41 +63,27 @@ const getCurrentDay = ()=>{
     };
     getCurrentDay();
 
-    const getCrrentTime = ()=>{
+    const getCrrentTime = () => {
         var mounth = [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-      ];
-      var now = new Date();
-      var month = mounth[now.getMonth() + 1];
-      var date = now.getDate();
-  
-      let hours = now.getHours();
-      let mins = now.getMinutes();
-  let sec = now.getSeconds();
-      let periods = "AM";
-      
-      if (hours > 11){
-        periods = "PM";
-        if(hours > 11) hours -= 12;
-      }
-      if(mins<10){
-        mins = "0" + mins;
-      }
-     
-    //   return `${month}${date} | ${hours}:${mins}${periods}`;
-      const today_data =  document.getElementById("today_data");
-      today_data.innerText = `${date},${month} | ${hours} : ${mins} : ${sec} ${periods}`
-      setTimeout("getCrrentTime()",1000);
-      };
+            "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+        var now = new Date();
+        var month = mounth[now.getMonth()];
+        var date = now.getDate();
+        let hours = now.getHours();
+        let mins = now.getMinutes();
+        let sec = now.getSeconds();
+        let periods = "AM";
+    
+        if (hours > 11) {
+            periods = "PM";
+            if (hours > 11) hours -= 12;
+        }
+        if (mins < 10) mins = "0" + mins;
+        const today_data = document.getElementById("today_data");
+        today_data.innerText = `${date}, ${month} | ${hours}:${mins}:${sec} ${periods}`;
+    };
+    
+    setInterval(getCrrentTime, 1000); // Update every second
+    
    getCrrentTime();
